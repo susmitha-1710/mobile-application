@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Paths After 10th</title>
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0; padding: 0;
+  background: linear-gradient(to right, #eef6f9, #ffffff);
+  color: #333;
+}
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+nav {
+  background: #34495e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: slideDown 1s ease;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+nav a:hover {background: #1abc9c;}
+.container {padding: 20px; max-width: 1100px; margin: auto;}
+.card {
+  background: white;
+  border-radius: 12px;
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.card h2 {margin: 0; color: #2c3e50; position: relative;}
+.card h2::after {content: "▼"; position: absolute; right: 0; font-size: 0.9em; transition: transform 0.3s;}
+.card.active h2::after {transform: rotate(-180deg);}
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+.card.active .content {max-height: 1000px; opacity: 1; margin-top: 15px;}
+.flow {
+  border-left: 3px solid #1abc9c;
+  margin-left: 10px;
+  padding-left: 15px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+.flow p {
+  margin: 10px 0;
+  font-weight: 500;
+}
+.flow p::before {content: "➜ "; color: #1abc9c; font-weight: bold;}
+.flow button {
+  margin-left: 10px;
+  padding: 3px 6px;
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.flow button:hover {background-color: #16a085;}
+.proof {margin-top: 10px; animation: fadeInUp 0.8s ease-in-out;}
+.proof a {color: #1abc9c; text-decoration: none; font-weight: bold; transition: color 0.3s;}
+.proof a:hover {color: #16a085; text-decoration: underline;}
+footer {background: #2c3e50; color: white; text-align: center; padding: 15px; margin-top: 30px; font-size: 0.9em; animation: fadeInUp 1s ease-in-out;}
+
+/* Animations */
+@keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+@keyframes fadeInUp {from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);}}
+@keyframes slideDown {from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1};}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Career Paths After 10th</h1>
+  <p>Choose your stream after SSC / CBSE → Inter / Diploma → Career</p>
+</header>
+
+<nav>
+  <a href="#cbse">CBSE</a>
+  <a href="#mpc">MPC</a>
+  <a href="#bipc">BiPC</a>
+  <a href="#mec">MEC</a>
+  <a href="#cec">CEC</a>
+  <a href="#hec">HEC</a>
+  <a href="#diploma">Diploma</a>
+  <a href="#quizCard">Career Quiz</a>
+  <a href="#saved" onclick="scrollToSaved(event)">Saved Paths</a>
+</nav>
+
+<div class="container" id="content">
+
+<!-- Cards with correct toggle usage -->
+<div class="card" id="cbse">
+  <h2 onclick="toggleContent(this.parentElement)">Students from CBSE Board</h2>
+  <div class="content">
+    <div class="flow">
+      <p>CBSE → MPC / BiPC / MEC / CEC / HEC → Career Paths <button onclick="savePath('CBSE → MPC/BiPC/MEC/CEC/HEC', event)">Save</button></p>
+      <p>CBSE → Diploma / Polytechnic → Skilled Jobs / B.Tech (Lateral Entry) <button onclick="savePath('CBSE → Diploma/Polytechnic', event)">Save</button></p>
+      <p>CBSE → Skill-based Courses → Freelancing / Startups <button onclick="savePath('CBSE → Skill Courses', event)">Save</button></p>
+    </div>
+    <div class="proof"><b>Proof:</b> <a href="https://www.cbse.gov.in/" target="_blank">CBSE Official</a></div>
+  </div>
+</div>
+
+<!-- Repeat for other sections, all with this.parentElement -->
+
+<div class="card" id="mpc">
+  <h2 onclick="toggleContent(this.parentElement)">MPC (Maths, Physics, Chemistry)</h2>
+  <div class="content">
+    <div class="flow">
+      <p>MPC → Engineering (B.Tech, IIT, NIT, IIIT) <button onclick="savePath('MPC → Engineering', event)">Save</button></p>
+      <p>MPC → Defence (NDA, Navy, Airforce) <button onclick="savePath('MPC → Defence', event)">Save</button></p>
+      <p>MPC → B.Sc → Data Science / Architecture <button onclick="savePath('MPC → B.Sc', event)">Save</button></p>
+    </div>
+    <div class="proof"><b>Proof:</b> <a href="https://jeemain.nta.ac.in/" target="_blank">JEE Mains</a></div>
+  </div>
+</div>
+
+<!-- BiPC -->
+<div class="card" id="bipc">
+  <h2 onclick="toggleContent(this.parentElement)">BiPC (Biology, Physics, Chemistry)</h2>
+  <div class="content">
+    <div class="flow">
+      <p>BiPC → MBBS / BDS / BHMS / BAMS <button onclick="savePath('BiPC → Medicine', event)">Save</button></p>
+      <p>BiPC → Pharmacy / Agriculture / Veterinary Sciences <button onclick="savePath('BiPC → Pharmacy/Agriculture/Vet', event)">Save</button></p>
+      <p>BiPC → Allied Health Sciences (Nursing, Physiotherapy) <button onclick="savePath('BiPC → Allied Health Sciences', event)">Save</button></p>
+    </div>
+    <div class="proof"><b>Proof:</b> <a href="https://neet.nta.nic.in/" target="_blank">NEET</a></div>
+  </div>
+</div>
+
+<!-- MEC -->
+<div class="card" id="mec">
+  <h2 onclick="toggleContent(this.parentElement)">MEC (Maths, Economics, Commerce)</h2>
+  <div class="content">
+    <div class="flow">
+      <p>MEC → B.Com / BBA / CA / CMA / CS <button onclick="savePath('MEC → B.Com/BBA/CA', event)">Save</button></p>
+      <p>MEC → Economics / Business Analytics / Actuarial Sciences <button onclick="savePath('MEC → Economics/Analytics', event)">Save</button></p>
+      <p>MEC → Banking / Finance / Corporate Jobs <button onclick="savePath('MEC → Banking/Finance', event)">Save</button></p>
+    </div>
+    <div class="proof"><b>Proof:</b> <a href="https://www.icai.org/" target="_blank">ICAI</a></div>
+  </div>
+</div>
+
+<!-- Other cards here, all with `this.parentElement` -->
+
+<!-- Career Quiz -->
+<div class="card" id="quizCard">
+  <h2 onclick="toggleContent(this.parentElement)">Career Recommendation Quiz</h2>
+  <div class="content">
+    <form id="careerQuiz">
+      <p>1. Which subject do you enjoy the most?</p>
+      <label><input type="radio" name="q1" value="MPC"> Maths / Physics / Chemistry</label><br>
+      <label><input type="radio" name="q1" value="BiPC"> Biology / Physics / Chemistry</label><br>
+      <label><input type="radio" name="q1" value="CEC"> Civics / Economics / Commerce</label><br>
+      <label><input type="radio" name="q1" value="HEC"> History / Economics / Civics</label><br>
+
+      <p>2. Which activity do you enjoy most?</p>
+      <label><input type="radio" name="q2" value="Engineering"> Solving technical / logical problems</label><br>
+      <label><input type="radio" name="q2" value="Medicine"> Helping others / healthcare</label><br>
+      <label><input type="radio" name="q2" value="Commerce"> Business / Finance / Accounts</label><br>
+      <label><input type="radio" name="q2" value="Arts"> Writing / History / Social Studies</label><br>
+
+      <p>3. Preferred work environment?</p>
+      <label><input type="radio" name="q3" value="Lab"> Lab / Research / Tech</label><br>
+      <label><input type="radio" name="q3" value="Hospital"> Hospital / Clinic</label><br>
+      <label><input type="radio" name="q3" value="Office"> Office / Corporate</label><br>
+      <label><input type="radio" name="q3" value="Field"> Field / Government / Social work</label><br>
+
+      <br>
+      <button type="button" onclick="recommendCareer()">Get Recommendation</button>
+    </form>
+    <div id="quizResult" style="margin-top: 15px; font-weight: bold; color: #1abc9c;"></div>
+  </div>
+</div>
+
+<!-- Saved Paths -->
+<div class="card" id="saved">
+  <h2 onclick="toggleContent(this.parentElement)">My Saved Paths</h2>
+  <div class="content">
+    <ul id="savedPaths"></ul>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Career Roadmap | HTML, CSS & JS</p>
+</footer>
+
+<script>
+function toggleContent(el) {
+  const card = el.closest('.card');
+  if (card) {
+    card.classList.toggle("active");
+  }
+}
+
+function savePath(path, event) {
+  event.stopPropagation();
+  let saved = JSON.parse(localStorage.getItem('savedPaths')) || [];
+  if (!saved.includes(path)) {
+    saved.push(path);
+    localStorage.setItem('savedPaths', JSON.stringify(saved));
+    displaySavedPaths();
+    alert('Path saved!');
+  } else {
+    alert('This path is already saved.');
+  }
+}
+
+function displaySavedPaths() {
+  const container = document.getElementById('savedPaths');
+  let saved = JSON.parse(localStorage.getItem('savedPaths')) || [];
+  container.innerHTML = saved.length ? saved.map(p => `<li>${p}</li>`).join('') : '<li>No paths saved yet.</li>';
+}
+
+function scrollToSaved(event) {
+  event.preventDefault();
+  const savedCard = document.getElementById('saved');
+  if (!savedCard.classList.contains('active')) savedCard.classList.add('active');
+  savedCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// AI-Based Career Recommendation
+function recommendCareer() {
+  const form = document.getElementById('careerQuiz');
+  const answers = {
+    q1: form.q1.value,
+    q2: form.q2.value,
+    q3: form.q3.value
+  };
+  let recommendation = "";
+
+  if (answers.q1 === "MPC" && answers.q2 === "Engineering" && answers.q3 === "Lab") {
+    recommendation = "You may consider MPC → Engineering (B.Tech, IIT, NIT, IIIT).";
+  } else if (answers.q1 === "BiPC" && answers.q2 === "Medicine" && answers.q3 === "Hospital") {
+    recommendation = "You may consider BiPC → MBBS / BDS / Allied Health Sciences.";
+  } else if (answers.q1 === "CEC" && answers.q2 === "Commerce" && answers.q3 === "Office") {
+    recommendation = "You may consider CEC → B.Com / CA / Business Analytics / Banking.";
+  } else if (answers.q1 === "HEC" && answers.q2 === "Arts" && answers.q3 === "Field") {
+    recommendation = "You may consider HEC → BA / Social Sciences / UPSC / Journalism.";
+  } else {
+    recommendation = "Explore multiple paths: MPC, BiPC, MEC, CEC, or HEC depending on your interests.";
+  }
+
+  document.getElementById('quizResult').innerText = recommendation;
+}
+
+document.addEventListener('DOMContentLoaded', displaySavedPaths);
+</script>
+
+</body>
+</html>
